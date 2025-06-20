@@ -283,7 +283,7 @@ def calculate_mmlu(
             is_correct = logits.argmax(-1) == answers
             total_correct += is_correct.sum()
 
-            progress_bar.set_description("MMLU Accuracy = {:.1f}%".format(total_correct.item() / n_samples * 100))
+            progress_bar.set_description("MMLU Doğruluğu = {:.1f}%".format(total_correct.item() / n_samples * 100))
         pass
     pass
     return total_correct.item() / n_samples
@@ -353,7 +353,7 @@ def calculate_mmlu_openai_server(
     )
     answer_ids = answer_ids.tolist()
     set_answer_ids = frozenset(answer_ids)
-    print("Answer IDs =", answer_ids)
+    print("Cevap ID'leri =", answer_ids)
     n_examples = len(mmlu_dataset)
 
     n_samples = 0
@@ -416,7 +416,7 @@ def calculate_mmlu_openai_server(
                 is_correct = (len(answer) != 0 and selected_answers[0].strip() == answer)
                 total_correct += is_correct
             pass
-            progress_bar.set_description("MMLU Accuracy = {:.1f}%".format(total_correct / n_samples * 100))
+            progress_bar.set_description("MMLU Doğruluğu = {:.1f}%".format(total_correct / n_samples * 100))
         pass
     pass
     return total_correct / n_samples
