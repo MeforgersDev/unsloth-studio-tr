@@ -21,7 +21,7 @@ os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
 os.environ["GRADIO_ANALYTICS_ENABLED"] = "False"
 MODEL_NAME = "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
 
-print("Installing packages for 🦥 Unsloth Studio ... Please wait 5 minutes ...")
+print("🦥 Unsloth Studio icin paketler yukleniyor... Lütfen 5 dakika bekleyin...")
 
 install_first = [
     "pip", "install",
@@ -81,7 +81,7 @@ import io
 import logging
 logging.getLogger("transformers.utils.hub").setLevel(logging.CRITICAL+1)
 
-print("Loading model ... Please wait 1 more minute! ...")
+print("Model yukleniyor... Lütfen 1 dakika daha bekleyin!...")
 
 with redirect_stdout(io.StringIO()):
     from unsloth import FastLanguageModel
@@ -162,10 +162,10 @@ scene = gradio.ChatInterface(
     async_process_chatbot,
     chatbot = gradio.Chatbot(
         height = 325,
-        label = "Unsloth Studio Chat",
+        label = "Unsloth Studio Sohbet",
     ),
     textbox = gradio.Textbox(
-        placeholder = "Message Unsloth Chat",
+        placeholder = "Unsloth'a Mesaj Gönder",
         container = False,
     ),
     title = None,
@@ -173,8 +173,8 @@ scene = gradio.ChatInterface(
     examples = None,
     cache_examples = False,
     retry_btn = None,
-    undo_btn = "Remove Previous Message",
-    clear_btn = "Restart Entire Chat",
+    undo_btn = "Önceki Mesajı Sil",
+    clear_btn = "Sohbeti Sıfırla",
 )
 
 scene.launch(quiet = True)
